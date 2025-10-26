@@ -1,8 +1,11 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'mcr.microsoft.com/dotnet/sdk:8.0'
+        }
+    }
     
     triggers {
-        // Trigger on push to main branch
         pollSCM('H/5 * * * *')
     }
     
